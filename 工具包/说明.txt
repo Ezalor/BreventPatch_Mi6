@@ -1,0 +1,41 @@
+smali 和 baksmali 版本：2.2.1
+
+
+adb pull /system/framework/arm64
+
+adb pull /system/framework/oat/arm64/services.odex
+
+java -Xms1g -jar baksmali.jar x -d arm64 services.odex -o services
+
+"C:\ECHO\Python_3.6\python.exe" patch.py -a apk -s services
+
+java -Xms1g -jar smali.jar a -o classes.dex services
+
+jar -cvf services.jar classes.dex
+
+
+
+
+============================================
+
+
+
+boot.oat
+/system/framework/arm64
+
+services.jar
+/system/framework/services.jar
+/system/framework/oat/arm64/services.odex
+
+
+
+java -Xms1g -jar baksmali.jar x -d <boot.oat所在目录路径> <services.odex文件路径> -o services
+
+java -Xms1g -jar baksmali.jar d <黑域APK路径> -o apk
+
+python <patch.py路径> -a apk -s services
+"C:\ECHO\Python_3.6\python.exe" patch.py -a apk -s services
+
+java -Xms1g -jar smali.jar a -o classes.dex services
+
+jar -cvf services.jar classes.dex

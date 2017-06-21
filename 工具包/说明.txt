@@ -7,6 +7,7 @@ adb pull /system/framework/oat/arm64/services.odex
 
 java -Xms1g -jar baksmali.jar x -d arm64 services.odex -o services
 
+python.exe patch.py -a apk -s services
 "C:\ECHO\Python_3.6\python.exe" patch.py -a apk -s services
 
 java -Xms1g -jar smali.jar a -o classes.dex services

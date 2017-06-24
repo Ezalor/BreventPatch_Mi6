@@ -1,7 +1,7 @@
 id=BreventPatch_Mi6
 name=黑域 services.jar 补丁
-version=v1.3（Mi 6 v7.6.22）
-versionCode=4
+version=v1.4（Mi 6 v7.6.24）
+versionCode=5
 author=Ezalor
 description=替换打过黑域补丁的 services.jar。
 template=3
